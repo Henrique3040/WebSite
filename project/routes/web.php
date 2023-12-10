@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,9 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',[PostsController::class, 'index'])->name('posts.home');
+Route::get('/create',[PostsController::class, 'create'])->name('posts.create');
+Route::post('/',[PostsController::class, 'store'])->name('posts.store');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
