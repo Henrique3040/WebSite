@@ -10,7 +10,8 @@ class PostsController extends Controller
 {
     public function index()
     {
-        return view('posts.home');
+        $posts = Posts::all();
+        return view('posts.home',['posts' => $posts]);
     }
 
     public function create()
