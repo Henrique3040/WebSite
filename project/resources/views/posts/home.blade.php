@@ -44,6 +44,13 @@
                 <div>
                   <h2>{{ $post->title }}</h2>
                   <p>{{ $post->content }}</p>
+
+                    <div>
+                        <img src="{{ $post ->foto }}" width="250" height="250" alt="">
+                    </div>
+                    
+                  <p>published {{ $post ->created_at }} </p>
+                  
                 </div>
                 @endforeach
             </div>

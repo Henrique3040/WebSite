@@ -20,7 +20,7 @@
                 @endif
             </div>
     </div>
-    <form method="post" action="{{ route('posts.store') }}">
+    <form method="post" action="{{ route('posts.store') }}" enctype="multipart/form-data">
         @csrf
         @method('post')
         <div>
@@ -31,6 +31,11 @@
         <div>
             <label for="">Content</label>
             <input type="text" name="content" placeholder="content"/>
+        </div>
+
+        <div>
+            <label for="">Foto</label>
+            <input type="file" name="foto" placeholder="foto"/>
         </div>
 
         <div>

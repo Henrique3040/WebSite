@@ -24,7 +24,12 @@ class PostsController extends Controller
         $data = $request -> validate([
             'title' => 'required',
             'content' => 'required',
+            'foto' => 'required'
         ]);
+
+        $fileName = time().$request->file('foto')->getClientOriginalName();
+        $path = $request->file('foto')->storeAs('images', $fileName, 'public');
+        $data['foto'] = '/storage/'.$path;
 
        $newpost = Posts::create($data);
        
