@@ -13,9 +13,13 @@
         @csrf
     </form>
 
-    <form method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-6">
+    <form method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-6" enctype="multipart/form-data">
         @csrf
         @method('patch')
+
+        <div>
+            <img src="{{ $user ->foto }}" width="250" height="250" alt="">
+        </div>
 
         <div>
             <x-input-label for="name" :value="__('Name')" />
@@ -30,13 +34,13 @@
         </div>
 
         <div>
-            <x-input-label for="biograpy" :value="__('Biography')" />
-            <x-text-input id="biograpy" name="biograpy" class="mt-1 block w-full" :value="old('biograpy', $user->biograpy)" />
-            <x-input-error class="mt-2" :messages="$errors->get('biograpy')" />
+            <x-input-label for="biograpy" :value="__('About me')" />
+            <x-text-input id="biograpy" type="text" name="bio" class="mt-1 block w-full" :value="old('biograpy', $user->bio)" />
+            <x-input-error class="mt-2" :messages="$errors->get('biograpy')"/>
         </div>
 
         <div>
-            <x-input-label for="foto" :value="__('Foto')" />
+            <x-input-label for="foto" :value="__('Profiel Foto')" />
             <input id="foto" name="foto" type="file" class="mt-1 block w-full" :value="old('foto', $user->foto)" />
             <x-input-error class="mt-2" :messages="$errors->get('foto')" />
         </div>
