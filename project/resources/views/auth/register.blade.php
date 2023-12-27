@@ -1,7 +1,8 @@
 <x-guest-layout>
-    <form method="POST" action="{{ route('register') }}">
+  
+    <form method="POST" action="{{ route('register.post') }}" enctype="multipart/form-data">
         @csrf
-
+        @method('post')
         <!-- Name -->
         <div>
             <x-input-label for="name" :value="__('Name')" />
@@ -16,6 +17,7 @@
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
+      
         <!-- Password -->
         <div class="mt-4">
             <x-input-label for="password" :value="__('Password')" />
