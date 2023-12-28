@@ -18,6 +18,9 @@ use App\Http\Controllers\PostsController;
 Route::get('/',[PostsController::class, 'index'])->name('home');
 Route::get('/create',[PostsController::class, 'create'])->name('posts.create');
 Route::post('/',[PostsController::class, 'store'])->name('posts.store');
+Route::get('/{post}/edit',[PostsController::class, 'edit'])->name('posts.edit');
+Route::put('/{post}/update',[PostsController::class, 'update'])->name('posts.update');
+Route::delete('/{post}/delete',[PostsController::class, 'destroy'])->name('posts.destroy');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

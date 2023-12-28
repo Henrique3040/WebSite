@@ -33,6 +33,35 @@ class PostsController extends Controller
 
        $newpost = Posts::create($data);
        
-        return redirect(route('posts.home'));
+        return redirect(route('home'));
+    }
+
+    public function edit(Posts $post)
+    {
+        return view('posts.edit', compact('post'));
+    }
+
+    public function update(Request $request, Posts $post)
+    {
+        $data = $request -> validate([
+            'title' => 'required',
+            'content' => 'required',
+            'foto'
+        ]);
+
+        if($request->hasFile('foto')){
+            $fileName = time().$request->file('foto')->getClientOriginalName();
+            $path = $request->file('foto')->storeAs('images', $fileName, 'public');
+            $data['foto'] = '/storage/'.$path;
+        }
+      
+        $post->update($data);
+        return redirect(route('home'))->with('success', 'Post updated successfully');
+    }
+
+    public function destroy(Posts $post)
+    {
+        $post->delete();
+        return redirect(route('home'))->with('success', 'Post deleted successfully');
     }
 }
