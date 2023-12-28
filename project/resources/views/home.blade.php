@@ -38,7 +38,7 @@
             @endif
 
             
-            <div>
+            <div class="postCard">
                 <h1>Posts</h1>
               @foreach($posts as $post)
                 <div>
@@ -61,6 +61,18 @@
                   
                 </div>
                 @endforeach
+
+                @auth
+                @if(Auth::user()->admin)
+                 <a href="{{ route('posts.edit' , ['post' => $post]) }}">Edit</a>
+
+                 <form method="post" action="{{ route('posts.destroy', ['post' => $post]) }}">
+                    @csrf
+                    @method('delete')
+                    <input type="submit" value="Delete"/>
+                 </form>
+                 @endif
+                @endauth
             </div>
           
     </body>
