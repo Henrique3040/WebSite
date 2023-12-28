@@ -42,6 +42,14 @@
                 <h1>Posts</h1>
               @foreach($posts as $post)
                 <div>
+                    <a href="{{ route('posts.edit' , ['post' => $post]) }}">Edit</a>
+
+                    <form method="post" action="{{ route('posts.destroy', ['post' => $post]) }}">
+                        @csrf
+                        @method('delete')
+                        <input type="submit" value="Delete"/>
+                    </form>
+
                   <h2>{{ $post->title }}</h2>
                   <p>{{ $post->content }}</p>
 
