@@ -18,6 +18,7 @@ use App\Http\Controllers\PostsController;
 Route::get('/',[PostsController::class, 'index'])->name('home');
 Route::get('/create',[PostsController::class, 'create'])->name('posts.create');
 Route::post('/',[PostsController::class, 'store'])->name('posts.store');
+
 Route::get('/{post}/edit',[PostsController::class, 'edit'])->name('posts.edit');
 Route::put('/{post}/update',[PostsController::class, 'update'])->name('posts.update');
 Route::delete('/{post}/delete',[PostsController::class, 'destroy'])->name('posts.destroy');
@@ -25,6 +26,12 @@ Route::delete('/{post}/delete',[PostsController::class, 'destroy'])->name('posts
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth.admin')->group(function(){
+    Route::get('/users', [ProfileController::class, 'show'])->name('users.show');
+    Route::put('/users/{user}/makeAdmin', [ProfileController::class, 'makeAdmin'])->name('users.makeAdmin');
+});
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

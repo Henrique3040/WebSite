@@ -49,4 +49,26 @@ class RegisteredUserController extends Controller
 
         return redirect(RouteServiceProvider::HOME);
     }
+
+
+    public function storeAdmin(Request $request): RedirectResponse
+    {
+        $data = $request-> validate ([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email','unique:'.User::class],
+            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+        ]);
+
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email, 
+            'password' => Hash::make($request->password),
+            'admin' => true,
+        ]);
+
+        
+        event(new Registered($user));
+
+        return redirect('users');
+    }
 }

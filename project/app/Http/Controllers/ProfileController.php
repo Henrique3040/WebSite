@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use App\Models\User;
 
 class ProfileController extends Controller
 {
@@ -18,6 +19,14 @@ class ProfileController extends Controller
     {
         return view('profile.edit', [
             'user' => $request->user(),
+        ]);
+    }
+
+    public function show()
+    {
+        $users = User::all();
+        return view('users', [
+            'users' => $users,
         ]);
     }
 
@@ -50,6 +59,17 @@ class ProfileController extends Controller
 
         return Redirect::route('profile.edit')->with('status', 'profile-updated');
     }
+
+
+    public function makeAdmin(Request $request, User $user)
+    {
+        $user->admin = true;
+        $user->save();
+
+        return Redirect::route('users.show')->with('status', 'profile-updated');
+    }
+
+
 
     /**
      * Delete the user's account.
