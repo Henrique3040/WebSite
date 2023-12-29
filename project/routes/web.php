@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostsController;
+use App\Http\Controllers\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,10 +28,21 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+//alleen admins kan deze route gebruiken
 Route::middleware('auth.admin')->group(function(){
     Route::get('/users', [ProfileController::class, 'show'])->name('users.show');
     Route::put('/users/{user}/makeAdmin', [ProfileController::class, 'makeAdmin'])->name('users.makeAdmin');
 });
+
+//contact
+Route::get('/contact', function () {
+    return view('contact');
+})->name('contact');
+Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+
+//Admin answeRS
+Route::get('/message', [ContactController::class, 'showMessage'])->name('message');
+//todo post voor admin antwoord
 
 
 Route::middleware('auth')->group(function () {
