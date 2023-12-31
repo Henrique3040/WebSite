@@ -1,0 +1,102 @@
+
+
+.post-kader{
+    padding-bottom: 10%;   
+}
+
+.post-header{
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    height: 7vh;
+  
+}
+
+.post-footer{
+    background-color: black;
+    color: white;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 8vh;
+}
+
+
+.header-info{
+    display: flex;
+    justify-items: start;
+    
+}
+.my-style{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    
+    
+}
+
+#maincontainer {
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+    grid-template-areas: 
+    "leftside content rightside";
+    height: 100%;
+}
+
+#leftside {
+    grid-area: leftside;
+
+}
+
+#rightside {
+    grid-area: rightside;
+
+    padding-left: 20px;
+}
+#content {
+    /* display: flex; */
+    /* padding-top: 20px; */
+    padding: 1%;
+    grid-area: content;
+    
+
+}
+
+
+/*option post*/
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+
+
