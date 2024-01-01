@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\AboutController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,6 +43,9 @@ Route::post('/contact', [ContactController::class, 'store'])->name('contact.stor
 Route::get('/message', [ContactController::class, 'showMessage'])->name('message');
 //todo post voor admin antwoord
 
+
+//about
+Route::get('/about', [AboutController::class, 'index'])->name('about');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
