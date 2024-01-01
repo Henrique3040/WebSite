@@ -10,6 +10,8 @@
                 <li class="nav-item"><a class="nav-link" href="{{ route('contact') }}">Contact</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('profile.edit') }}">Profiel</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('posts.create') }}">Make a post</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('message') }}">Users messages</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('users.show') }}">users list</a></li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">

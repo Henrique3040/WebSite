@@ -1,11 +1,7 @@
 @extends('layouts.app')
 
-    <body class="antialiased style">
-
-        @include('layouts.navigatiebar')
-     <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
-     </div>
-         
+@section('content')
+   
 
         <div id="maincontainer">
            
@@ -24,57 +20,33 @@
         
                                 <header class="post-header">
 
-                                    <div>
-                                        <img src="{{ $post ->foto }}" width="50px" height="50px" alt="">
+                                    <div class="user-foto">
+                                        <img src="{{!! $post ->user->foto !!}}" width="50px" height="50px" alt="">
                                     </div>
                                     
                                     <div class="header-info">
-                                        <p>user:</p>
+                                        <p>{{ $post ->user->name }}</p>
                                         <p>{{ $post ->created_at }}</p>
                                     </div>
                                     
-                                    @auth
-                                    @if(! Auth::user()->admin)
                                     <div>
                                         <div class="dropdown">
                                             <button class="dropbtn">Options</button>
                                             <div class="dropdown-content">
-    
+
+                                                @auth
+                                                @if(Auth::user()->id == $post->user_id || Auth::user()->admin )
                                                 <a href="{{ route('posts.edit' , ['post' => $post]) }}">Edit</a>
                                                 <form method="post" action="{{ route('posts.destroy', ['post' => $post]) }}">
                                                     @csrf
                                                     @method('delete')
                                                     <input type="submit" value="Delete"/>
-                                                    
                                                 </form>
-                                              
+                                                @endif
+                                                @endauth
                                             </div>
                                         </div>
                                     </div>
-
-                                    @endif
-                                    @endauth
-
-                                        @auth
-                                        @if(Auth::user()->admin)
-                                        <div>
-                                            <div class="dropdown">
-                                                <button class="dropbtn">Options</button>
-                                                <div class="dropdown-content">
-        
-                                                    <a href="{{ route('posts.edit' , ['post' => $post]) }}">Edit</a>
-                                                    <form method="post" action="{{ route('posts.destroy', ['post' => $post]) }}">
-                                                        @csrf
-                                                        @method('delete')
-                                                        <input type="submit" value="Delete"/>
-                                                        
-                                                    </form>
-                                                  
-                                                </div>
-                                            </div>
-                                        </div>
-                                       @endif
-                                       @endauth
                                 </header>
         
                                   <div class="post.img">
@@ -103,5 +75,6 @@
             </div>
         </div>
 
-    </body>
+   
+ @endsection
 </html>

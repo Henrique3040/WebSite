@@ -1,6 +1,6 @@
 @extends('layouts.app')
-<body>
-    @include('layouts.navigatiebar') 
+
+@section('content')
       
     <div class="container">
       
@@ -114,5 +114,4 @@
     
 
 
-</body>
-</html>
+@endsection

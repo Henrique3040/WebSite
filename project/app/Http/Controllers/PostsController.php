@@ -24,9 +24,12 @@ class PostsController extends Controller
         $data = $request -> validate([
             'title' => 'required',
             'content' => 'required',
-            'foto' => 'required'
+            'foto' => 'required',
+            'user_id'
         ]);
 
+        $data['user_id'] = auth()->user()->id;
+      
         $fileName = time().$request->file('foto')->getClientOriginalName();
         $path = $request->file('foto')->storeAs('images', $fileName, 'public');
         $data['foto'] = '/storage/'.$path;

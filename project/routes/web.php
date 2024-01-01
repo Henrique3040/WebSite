@@ -17,8 +17,6 @@ use App\Http\Controllers\ContactController;
 */
 
 Route::get('/',[PostsController::class, 'index'])->name('home');
-Route::get('/create',[PostsController::class, 'create'])->name('posts.create');
-Route::post('/',[PostsController::class, 'store'])->name('posts.store');
 
 Route::get('/{post}/edit',[PostsController::class, 'edit'])->name('posts.edit');
 Route::put('/{post}/update',[PostsController::class, 'update'])->name('posts.update');
@@ -49,6 +47,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    Route::get('/create',[PostsController::class, 'create'])->name('posts.create');
+    Route::post('/',[PostsController::class, 'store'])->name('posts.store');
 });
 
 require __DIR__.'/auth.php';

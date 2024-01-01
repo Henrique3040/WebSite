@@ -33,6 +33,8 @@ class AuthenticatedSessionController extends Controller
         return redirect(route('home'));
     }
 
+
+
     /**
      * Destroy an authenticated session.
      */
