@@ -1,26 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Make a Post</h1>
-    <div>
-        @if ($errors->any())
-            <div>
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>    
-                    @endforeach
-                </ul>
+@extends('layouts.app')
 
-                @endif
-            </div>
-    </div>
-    <form method="post" action="{{ route('posts.store') }}" enctype="multipart/form-data">
+ @section('content')
+   
+    <div class="create-post">
+
+        <h1>Make a Post</h1>
+   <div class="form-post">
+     <form method="post" action="{{ route('posts.store') }}" enctype="multipart/form-data">
         @csrf
         @method('post')
         <div>
@@ -41,7 +27,9 @@
         <div>
             <input type="submit" value="Make a New Post"/>
         </div>
-    </form>
+     </form>
 
-</body>
-</html>
+   </div>
+ </div>
+
+    @endsection
