@@ -2,26 +2,29 @@
 
 @section('content')
    
-
+   @foreach($posts as $post)
         <div id="maincontainer">
            
             
             <div id="rightside">
                 
             </div>
+
+
             <div id="content">
+
                 <div class="my-style">
                     
         
                         <div class="post-cotainer">
                             <h1>Posts</h1>
-                            @foreach($posts as $post)
+                           
                             <article class="post-kader">
         
                                 <header class="post-header">
 
                                     <div class="user-foto">
-                                        <img src="{{!! $post ->user->foto !!}}" width="50px" height="50px" alt="">
+                                        <img src="{{ $post ->user->foto }}" width="50px" height="50px" alt="">
                                     </div>
                                     
                                     <div class="header-info">
@@ -62,7 +65,7 @@
                               </div>
                               
                             </article>
-                            @endforeach
+                            
         
                         </div>
                       
@@ -75,6 +78,8 @@
             </div>
         </div>
 
+        @endforeach
    
- @endsection
+   @endsection
+   
 </html>

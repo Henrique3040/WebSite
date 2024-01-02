@@ -30,22 +30,15 @@
     justify-items: start;
     
 }
-.my-style{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    
-    
-}
+
 
 #maincontainer {
     display: grid;
     grid-template-columns: 20% 60% 20%;
     grid-template-areas: 
     "leftside content rightside";
-    height: 100%;
+   
+    
 }
 
 #leftside {
@@ -59,11 +52,15 @@
     padding-left: 20px;
 }
 #content {
-    /* display: flex; */
-    /* padding-top: 20px; */
+    
+    display: flex;
+    flex-direction: column;
     padding: 1%;
     grid-area: content;
-    
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: auto;
 
 }
 
