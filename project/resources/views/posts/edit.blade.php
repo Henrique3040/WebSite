@@ -1,47 +1,48 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
+
+@extends('layouts.app')
+
+@section('content')
+
+<div class="post-section">
+
     <h1>Edit a Post</h1>
-    <div>
+
+    <div class="error-messages">
         @if ($errors->any())
-            <div>
-                <ul>
+            <div class="error-container">
+                <ul class="error-list">
                     @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>    
+                        <li>{{ $error }}</li>
                     @endforeach
                 </ul>
-
-                @endif
             </div>
+        @endif
     </div>
-    <form method="post" action="{{ route('posts.update', ['post' => $post]) }}" enctype="multipart/form-data">
+
+    <form method="post" action="{{ route('posts.update', ['post' => $post]) }}" enctype="multipart/form-data" class="edit-post-form">
         @csrf
         @method('put')
-        <div>
-            <label for="">Name</label>
-            <input type="text" name="title" placeholder="title" value="{{ $post->title }}"/>
+        <div class="form-group">
+            <label for="title">Name</label>
+            <input type="text" name="title" id="title" placeholder="Title" value="{{ $post->title }}" class="form-input">
         </div>
 
-        <div>
-            <label for="">Content</label>
-            <input type="text" name="content" placeholder="content" value="{{ $post->content }}"/>
+        <div class="form-group">
+            <label for="content">Content</label>
+            <input type="text" name="content" id="img-post" placeholder="Content" value="{{ $post->content }}" class="form-input">
         </div>
 
-        <div>
-            <label for="">Foto</label>
-            <input type="file" name="foto" placeholder="foto" value="{{ $post->foto }}"/>
+        <div class="form-group">
+            <label for="foto">Foto</label>
+            <input type="file" name="foto" id="foto" class="form-input">
         </div>
 
-        <div>
-            <input type="submit" value="Update Post"/>
+        <div class="form-group-submit">
+            <input type="submit" value="Update Post" class="btn btn-primary">
         </div>
     </form>
 
-</body>
-</html>
+</div>
+
+
+@endsection

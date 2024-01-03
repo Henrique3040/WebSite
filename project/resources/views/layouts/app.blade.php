@@ -23,14 +23,15 @@
     <body class="antialiased style">
 
         @auth
-
         @if(Auth::user()->admin == true)
-         @include('layouts.partials.navBarAdmin')
-        @endauth
+            @include('layouts.partials.navBarAdmin')
         @else
-         @include('layouts.partials.navigatiebar')
+            @include('layouts.partials.navigatiebar')
         @endif
-        
+    @else
+        @include('layouts.partials.navigatiebar')
+    @endauth
+    
         @yield('content')
         
     </body>

@@ -6,18 +6,18 @@
     
         <div class="profile-container">
           
-                <div class="max-w-xl">
+                <div class="edit-parts">
                     @include('profile.partials.update-profile-information-form')
                 </div>
             
 
             
-                <div class="max-w-xl">
+                <div class="edit-parts">
                     @include('profile.partials.update-password-form')
                 </div>
             
 
-                <div class="max-w-xl">
+                <div class="edit-parts">
                     @include('profile.partials.delete-user-form')
                 </div>
             

@@ -52,6 +52,9 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
+    Route::post('/profile', [ProfileController::class, 'confirmDeletion'])->name('confirm.user.deletion');
+
+
     Route::get('/create',[PostsController::class, 'create'])->name('posts.create');
     Route::post('/',[PostsController::class, 'store'])->name('posts.store');
 });
