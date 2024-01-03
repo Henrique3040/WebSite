@@ -1,4 +1,7 @@
 
+.header-post{
+    text-align: center;
+}
 
 .post-kader{
     padding-bottom: 10%;   
@@ -61,7 +64,6 @@
     align-items: center;
     text-align: center;
     height: auto;
-
 }
 
 
@@ -117,22 +119,148 @@
 }
 
 
-
-
 /*Profile page*/
 
 .profile-container{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    height: 100vh;
-    padding: 1%;
+    text-align: center;
+   
+}
+
+.edit-parts{
+    border: black 1px solid;
     margin: 1%;
-    border: 1px solid black;
-    border-radius: 5px;
-    background-color: white;
+    width: 100%;
+}
+
+/*update profile*/
+
+.profile-container section {
+    margin-bottom: 20px; /* Adjust the value as needed */
+}
+
+
+.form-update {
+    max-width: 600px;
+    margin: auto;
+}
+
+
+.form-update div {
+    margin-bottom: 20px;
+}
+
+.form-update label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-update input,
+.form-update textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.form-update button {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.form-update button:hover {
+    background-color: #45a049;
+}
+
+/*Update password*/
+
+.update-password-section {
+    max-width: 600px;
+    margin: auto;
+}
+
+.update-password-form {
+    margin-top: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.update-password-form button{
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.update-password-form button:hover {
+    background-color: #45a049;
+}
+
+/*delet account*/
+.delete-account-section {
+    max-width: 600px;
+    margin: auto;
+}
+
+.delete-account-form {
+    margin-top: 20px;
+}
+
+.confirm-user-deletion-form {
     text-align: center;
 }
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.btn {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+}
+
+.btn:hover,
+.btn-danger:hover {
+    background-color: #45a049;
+}
+
+.form-group .delete-account-confirm-btn {
+    margin-left: 10px;
+}
+
+
+
 
 

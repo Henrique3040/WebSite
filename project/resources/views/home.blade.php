@@ -2,6 +2,9 @@
 
 @section('content')
    
+<div class="header-post">
+    <h1>Posts</h1>
+</div>
    @foreach($posts as $post)
         <div id="maincontainer">
            
@@ -17,7 +20,7 @@
                     
         
                         <div class="post-cotainer">
-                            <h1>Posts</h1>
+                            
                            
                             <article class="post-kader">
         

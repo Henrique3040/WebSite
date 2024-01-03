@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 use App\Models\User;
+use App\Models\Posts;
 
 class ProfileController extends Controller
 {
@@ -36,6 +37,9 @@ class ProfileController extends Controller
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
         $user = $request->user();
+
+        // gaat de naam update als veranderd is
+        $user->name = $request->input('name');
 
         // gaat de email update als veranderd is
         if ($request->user()->isDirty('email')) {
@@ -83,6 +87,10 @@ class ProfileController extends Controller
         $user = $request->user();
 
         Auth::logout();
+
+
+          // Delete associated posts
+          Posts::where('user_id', $user->id)->delete();
 
         $user->delete();
 
