@@ -414,7 +414,6 @@
 
 /*about page*/
 .container-about {
-    
     max-width: 800px;
     margin: 20px auto;
     padding: 20px;
@@ -426,5 +425,30 @@
 
 
 
+/*Message panel*/
+.message-panel {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f8f8f8;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.user-info p {
+    margin: 5px 0;
+}
+
+.message p {
+    margin: 10px 0;
+}
+
+.user-message-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
 
