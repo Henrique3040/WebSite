@@ -9,20 +9,20 @@
                 <li class="nav-item"><a class="nav-link" href="{{ route('about') }}">About</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('FAQ') }}">FAQ</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('contact') }}">Contact</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{ route('profile.edit') }}">Profiel</a></li>
+                
                 <li class="nav-item"><a class="nav-link" href="{{ route('posts.create') }}">Make a post</a></li>
 
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Account</a>
                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                       
+                        <a class="dropdown-item" href="{{ route('profile.edit') }}">Profiel</a>
                         @if (Route::has('login'))
                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                     @auth
                     <form class="dropdown-item" method="post" action="{{ route('logout') }}">
                         @csrf
                         @method('POST')
-                        <button class="btn btn-link text-dark">
+                        <button class="logOutBtn btn-link text-dark">
                             {{ __('Log out') }}
                         </button>
                     </form>

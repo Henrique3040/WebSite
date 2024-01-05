@@ -287,3 +287,11 @@
     background-color: #4caf50;
     color: white;
 }
+
+
+/*log out button*/
+.logOutBtn{
+    border: none;
+    background: none;
+    padding: 0; 
+}
