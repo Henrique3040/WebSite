@@ -5,6 +5,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\FAQController;
+use App\Http\Controllers\FAQAnswersController;
+use App\Http\Controllers\EditFAQController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,14 +26,25 @@ Route::get('/{post}/edit',[PostsController::class, 'edit'])->name('posts.edit');
 Route::put('/{post}/update',[PostsController::class, 'update'])->name('posts.update');
 Route::delete('/{post}/delete',[PostsController::class, 'destroy'])->name('posts.destroy');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/FAQsPage',[FAQController::class, 'index'])->name('FAQ');
 
 //alleen admins kan deze route gebruiken
 Route::middleware('auth.admin')->group(function(){
     Route::get('/users', [ProfileController::class, 'show'])->name('users.show');
     Route::put('/users/{user}/makeAdmin', [ProfileController::class, 'makeAdmin'])->name('users.makeAdmin');
+    Route::get('/FAQ_Admin',[FAQController::class, 'adminPage'])->name('FAQ_Admin');
+    Route::post('/FAQ_Admin',[FAQController::class, 'store'])->name('FAQ.store');
+    Route::put('/FAQ_Admin/{FAQ}',[FAQController::class, 'update'])->name('FAQ.update');
+
+    Route::post('/FAQ', [FAQAnswersController::class, 'store'])->name('FAQAnswers.store');
+    Route::delete('/FAQ/{id}', [FAQAnswersController::class, 'destroy'])->name('FAQAnswers.destroy');
+    
+    Route::put('/FAQ/{answer}',[FAQAnswersController::class, 'update'])->name('FAQAnswers.update');
+    Route::get('/FAQ', [FAQAnswersController::class, 'edit'])->name('FAQAnswers.edit');
+    Route::delete('/{FAQ}/FAQ', [FAQController::class, 'destroy'])->name('FAQ.destroy');
+
+    Route::get('/editFAQ/{FAQ}', [EditFAQController::class, 'index'])->name('editFAQ');
+
 });
 
 //contact
