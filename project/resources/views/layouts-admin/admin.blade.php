@@ -16,7 +16,7 @@
 </head>
 <body>
     
-    @include('layouts.partials.navbarAdmin')
+    @include('layouts-admin.partials.navBaradmin')
 
     @yield('content')
 

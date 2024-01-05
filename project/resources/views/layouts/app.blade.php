@@ -26,7 +26,7 @@
 
         @auth
         @if(Auth::user()->admin == true)
-            @include('layouts.partials.navBarAdmin')
+            @include('layouts-admin.partials.navBaradmin')
         @else
             @include('layouts.partials.navigatiebar')
         @endif
