@@ -32,7 +32,7 @@
                                     
                                     <div class="header-info">
                                         <p>{{ $post ->user->name }}</p>
-                                        <p>{{ $post ->created_at }}</p>
+                                        <p>posted at {{ $post ->created_at->format('d/m') }}</p>
                                     </div>
                                     
                                     <div>

@@ -59,6 +59,7 @@ Route::get('/message', [ContactController::class, 'showMessage'])->name('message
 Route::get('/about', [AboutController::class, 'index'])->name('about');
 
 Route::middleware('auth')->group(function () {
+
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
@@ -66,12 +67,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/profile', [ProfileController::class, 'confirmDeletion'])->name('confirm.user.deletion');
 
 
-    Route::get('/create',[PostsController::class, 'create'])->name('posts.create');
-    Route::post('/',[PostsController::class, 'store'])->name('posts.store');
-
-    Route::get('/{post}/edit',[PostsController::class, 'edit'])->name('posts.edit');
-    Route::put('/{post}/update',[PostsController::class, 'update'])->name('posts.update');
-    Route::delete('/{post}/delete',[PostsController::class, 'destroy'])->name('posts.destroy');
+    Route::resource('posts', PostsController::class);
 });
 
 require __DIR__.'/auth.php';
