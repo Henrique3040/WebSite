@@ -4,6 +4,7 @@
     
 <div class="user-message-container">
 <h1>User message</h1>
+<p>All the messages from contact page are here backt to find</p>
 
 @foreach($contacts as $contact)
 
