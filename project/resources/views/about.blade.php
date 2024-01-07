@@ -5,7 +5,9 @@
 <div class="container-about">
 
     <h1 class="about-heading">Introduction</h1>
-    <p class="about-paragraph">This website is the result of the work of one student from Erasmus Brussels University College. This website is the result of my Backend web Laravel project, aiming to make a personal sort of social media.</p>
+    <p class="about-paragraph">This website is the result of the work of one student from Erasmus Brussels University College.
+         This website is the result of my Backend web Laravel project, aiming to make a personal sort of social media.
+        The name of the website is SYFMs (Save you favorite memory).</p>
 
     <h2 class="about-subheading">Features</h2>
     <h3 class="about-subsubheading">Making posts</h3>
