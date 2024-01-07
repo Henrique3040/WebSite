@@ -20,16 +20,58 @@
   
 }
 
-.post-footer{
+.post-footer {
     background-color: black;
     color: white;
-    display: flex;
-    text-align: center;
-    flex-direction: column;
-    justify-content: space-evenly;
-    height: 8vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: "likes info comments";
+    height: 10vh;
+    align-items: center;
 }
 
+#likes,
+#info,
+#comments {
+    text-align: center;
+}
+
+#likes a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+#likes p,
+#info h2,
+#info p,
+#comments p {
+    margin: 0;
+}
+
+#info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#info h2 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+#info p {
+    font-size: 14px;
+}
+
+#comments {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 .header-info{
     display: flex;
@@ -104,6 +146,13 @@
 .user-foto{
     display: flex;
    align-items: center;
+}
+
+.user-foto img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 /*create post*/
@@ -405,6 +454,59 @@
 }
 
 
+/*users page profile*/
+.profileKader {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 
+/* Style the profile header */
+.profileKader h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+/* Style the profile photo */
+.profileFoto img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Style the profile information section */
+.profileInfo p {
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+/* Style the user posts section */
+h2 {
+    font-size: 20px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.UserPost {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.postImg {
+    width: calc(33.33% - 10px); 
+    margin: 5px;
+    box-sizing: border-box;
+}
+
+.postImg img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px; 
+}
 
 

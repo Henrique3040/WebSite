@@ -8,6 +8,8 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\FAQController;
 use App\Http\Controllers\FAQAnswersController;
 use App\Http\Controllers\EditFAQController;
+use App\Http\Controllers\LikesController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,12 +62,15 @@ Route::get('/about', [AboutController::class, 'index'])->name('about');
 
 Route::middleware('auth')->group(function () {
 
+    Route::get('/userProfile/{user}', [UserController::class, 'profile'])->name('userProfile.profile');
+
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::post('/profile', [ProfileController::class, 'confirmDeletion'])->name('confirm.user.deletion');
 
+    Route::get('like/{post}', [LikesController::class, 'like'])->name('like');
 
     Route::resource('posts', PostsController::class);
 });

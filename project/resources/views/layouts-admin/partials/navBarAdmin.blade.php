@@ -14,7 +14,7 @@
                 <li class="nav-item"><a class="nav-link" href="{{ route('users.show') }}">users list</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('FAQ_Admin') }}">FAQ panel</a></li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Account</a>
                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{{ route('profile.edit') }}">Profiel</a>
                         @if (Route::has('login'))
