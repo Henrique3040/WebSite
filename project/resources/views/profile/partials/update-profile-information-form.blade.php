@@ -19,7 +19,7 @@
         @csrf
         @method('patch')
     
-        <div>
+        <div class="profileFoto">
             <img src="{{ $user->foto }}" width="250" height="250" alt="">
         </div>
     

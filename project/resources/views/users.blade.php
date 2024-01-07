@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts-admin.admin')
 @section('content')
     
 <div class="container-users">
@@ -62,7 +62,7 @@
     <!-- Register Admin Form -->
     <div class="register-form">
         <h2>Register Admin</h2>
-        <form method="post" action="{{ route('register.admin') }}" enctype="multipart/form-data" class="admin-form">
+        <form method="post" action="{{ route('register.admin') }}"  class="admin-form">
             @csrf
             @method('post')
             <div class="form-group">
@@ -72,14 +72,22 @@
                 <input type="email" name="email" placeholder="Email" class="form-input">
             </div>
             <div class="form-group">
-                <input type="password" name="password" placeholder="Password" class="form-input">
+               
+                <label for="password1">New Password</label>
+                <input id="password1" type="password" name="password" required autocomplete="password" class="form-input">
             </div>
+    
             <div class="form-group">
-                <input type="password" name="password_confirmation" placeholder="Confirm Password" class="form-input">
+               
+                <label for="password-confirm">Confirm Password</label>
+                <input id="password-confirm" type="password" name="password_confirmation" required autocomplete="password" class="form-input">
             </div>
+    
             <div class="form-group">
                 <button type="submit" class="btn btn-primary">Register</button>
             </div>
+    
+        
         </form>
     </div>
 

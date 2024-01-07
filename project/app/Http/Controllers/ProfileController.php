@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 use App\Models\User;
 use App\Models\Posts;
+use Illuminate\Support\Facades\Storage;
 
 class ProfileController extends Controller
 {
@@ -88,12 +89,23 @@ class ProfileController extends Controller
 
         Auth::logout();
 
+          // Delete user's profile photo from storage
+    if ($user->foto) {
+        $imagePath = str_replace('/storage/', '', $user->foto);
+        Storage::disk('public')->delete($imagePath);
+    }
 
-          // Delete associated posts
-          Posts::where('user_id', $user->id)->delete();
+    // Delete associated posts and their images
+    $posts = Posts::where('user_id', $user->id)->get();
 
-        $user->delete();
+    foreach ($posts as $post) {
+        // Delete post image from storage
+        $imagePath = str_replace('/storage/', '', $post->foto);
+        Storage::disk('public')->delete($imagePath);
 
+        // Delete post from database
+        $post->delete();
+    }
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 

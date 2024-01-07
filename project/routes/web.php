@@ -8,6 +8,8 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\FAQController;
 use App\Http\Controllers\FAQAnswersController;
 use App\Http\Controllers\EditFAQController;
+use App\Http\Controllers\LikesController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,14 +24,13 @@ use App\Http\Controllers\EditFAQController;
 
 Route::get('/',[PostsController::class, 'index'])->name('home');
 
-Route::get('/{post}/edit',[PostsController::class, 'edit'])->name('posts.edit');
-Route::put('/{post}/update',[PostsController::class, 'update'])->name('posts.update');
-Route::delete('/{post}/delete',[PostsController::class, 'destroy'])->name('posts.destroy');
+
 
 Route::get('/FAQsPage',[FAQController::class, 'index'])->name('FAQ');
 
 //alleen admins kan deze route gebruiken
 Route::middleware('auth.admin')->group(function(){
+
     Route::get('/users', [ProfileController::class, 'show'])->name('users.show');
     Route::put('/users/{user}/makeAdmin', [ProfileController::class, 'makeAdmin'])->name('users.makeAdmin');
     Route::get('/FAQ_Admin',[FAQController::class, 'adminPage'])->name('FAQ_Admin');
@@ -51,26 +52,27 @@ Route::middleware('auth.admin')->group(function(){
 Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
-Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 
-//Admin answeRS
+Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 Route::get('/message', [ContactController::class, 'showMessage'])->name('message');
-//todo post voor admin antwoord
 
 
 //about
 Route::get('/about', [AboutController::class, 'index'])->name('about');
 
 Route::middleware('auth')->group(function () {
+
+    Route::get('/userProfile/{user}', [UserController::class, 'profile'])->name('userProfile.profile');
+
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::post('/profile', [ProfileController::class, 'confirmDeletion'])->name('confirm.user.deletion');
 
+    Route::get('like/{post}', [LikesController::class, 'like'])->name('like');
 
-    Route::get('/create',[PostsController::class, 'create'])->name('posts.create');
-    Route::post('/',[PostsController::class, 'store'])->name('posts.store');
+    Route::resource('posts', PostsController::class);
 });
 
 require __DIR__.'/auth.php';

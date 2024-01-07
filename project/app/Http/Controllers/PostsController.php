@@ -5,12 +5,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Posts;
+use Illuminate\Support\Facades\Storage;
 
 class PostsController extends Controller
 {
     public function index()
     {
-        $posts = Posts::all();
+        $posts = Posts::latest()->get();
         return view('home',['posts' => $posts]);
     }
 
@@ -64,6 +65,12 @@ class PostsController extends Controller
 
     public function destroy(Posts $post)
     {
+
+
+        // Delete the image from storage
+         $imagePath = str_replace('/storage/', '', $post->foto);
+         Storage::disk('public')->delete($imagePath);
+
         $post->delete();
         return redirect(route('home'))->with('success', 'Post deleted successfully');
     }

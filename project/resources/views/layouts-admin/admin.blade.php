@@ -11,12 +11,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous" />
 
     <link rel="stylesheet" href="{{ asset('style-admin.css') }}">
+
+    <script src="{{ asset('script.js') }}" defer></script>
    
     
 </head>
 <body>
     
-    @include('layouts.partials.navbarAdmin')
+    @include('layouts-admin.partials.navBaradmin')
 
     @yield('content')
 

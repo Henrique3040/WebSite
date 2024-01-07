@@ -47,6 +47,7 @@ class FAQController extends Controller
     }
 
     public function destroy(FAQ $FAQ){
+        
         FAQ_answers::where('id', $FAQ->id)->delete(); 
 
         $FAQ->delete();

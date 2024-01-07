@@ -31,8 +31,8 @@
                                     </div>
                                     
                                     <div class="header-info">
-                                        <p>{{ $post ->user->name }}</p>
-                                        <p>{{ $post ->created_at }}</p>
+                                        <p> <a href="{{ route('userProfile.profile' , $post->user->name) }}">{{ $post ->user->name }} </a></p>
+                                        <p>posted at {{ $post ->created_at->format('d/m') }}</p>
                                     </div>
                                     
                                     <div>
@@ -60,9 +60,20 @@
                                   </div>
         
                                   <footer class="post-footer">
+                                    
+                                    <div id="likes">
+                                        <a href="{{ route('like', $post->id) }}">like post</a>
+                                        <p>likes{{ $post->likes()->count() }}</p>
+                                    </div>
+
+                                    <div id="info">
                                      <h2>{{ $post->title }}</h2>
                                      <p>{{ $post->content }}</p>
-                                     
+                                    </div>
+
+                                     <div id="coments">
+                                        <p>Comments </p>
+                                    </div>
                                   </footer>
                                 
                               </div>
