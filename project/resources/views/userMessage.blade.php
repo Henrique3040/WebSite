@@ -14,13 +14,13 @@
    
 
     <div class="user-info">
-    <p>User: {{ $contact ->name }}</p>
-    <p>Email: {{ $contact ->email }}</p>
+     <p>User: {{ $contact ->name }}</p>
+     <p>Email: {{ $contact ->email }}</p>
     </div>
 
     <div class="message">
-        <p>Subject {{ $contact ->subject }}</p>
-        <p>Message: {{ $contact ->message }}</p>
+     <p>Subject {{ $contact ->subject }}</p>
+     <p>Message: {{ $contact ->message }}</p>
     </div>
     
 </div>
