@@ -33,6 +33,7 @@ Route::middleware('auth.admin')->group(function(){
 
     Route::get('/users', [ProfileController::class, 'show'])->name('users.show');
     Route::put('/users/{user}/makeAdmin', [ProfileController::class, 'makeAdmin'])->name('users.makeAdmin');
+    
     Route::get('/FAQ_Admin',[FAQController::class, 'adminPage'])->name('FAQ_Admin');
     Route::post('/FAQ_Admin',[FAQController::class, 'store'])->name('FAQ.store');
     Route::put('/FAQ_Admin/{FAQ}',[FAQController::class, 'update'])->name('FAQ.update');
