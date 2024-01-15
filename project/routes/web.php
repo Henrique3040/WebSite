@@ -10,6 +10,7 @@ use App\Http\Controllers\FAQAnswersController;
 use App\Http\Controllers\EditFAQController;
 use App\Http\Controllers\LikesController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminAnswerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,6 +47,8 @@ Route::middleware('auth.admin')->group(function(){
     Route::delete('/{FAQ}/FAQ', [FAQController::class, 'destroy'])->name('FAQ.destroy');
 
     Route::get('/editFAQ/{FAQ}', [EditFAQController::class, 'index'])->name('editFAQ');
+
+    Route::post('/adminAnswer', [AdminAnswerController::class, 'store'])->name('admin.answer.store');
 
 });
 

@@ -233,6 +233,7 @@
 
 
 /*Message panel*/
+/* Message panel */
 .message-panel {
     max-width: 600px;
     margin: 20px auto;
@@ -242,8 +243,6 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-
-
 .user-info p {
     margin: 5px 0;
 }
@@ -252,11 +251,42 @@
     margin: 10px 0;
 }
 
-.user-message-container{
+/* Form styling */
+form {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+form textarea {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    resize: vertical;
+}
+
+form button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Container styling */
+.user-message-container {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 50px;
 }
+
 
 
 /*container user list*/
@@ -294,4 +324,23 @@
     border: none;
     background: none;
     padding: 0; 
+}
+
+/*Email layout*/
+
+.email-answer-container {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 50px;
+}
+
+.email-answer-container h1 {
+    color: #333;
+}
+
+.email-answer-container p {
+    color: #555;
 }
